@@ -7,6 +7,7 @@
 #include <omp.h>
 
 #include <cuda.h>
+#include <cuda_runtime.h>
 
 #define THREADS_PER_DIM 16
 #define BLOCKS_PER_DIM 16
@@ -204,7 +205,7 @@ kmeansCuda(float  **feature,				/* in: [npoints][nfeatures] */
 									  block_clusters_d,
 									  block_deltas_d);
 
-	cudaThreadSynchronize();
+	cudaDeviceSynchronize();
 
 	/* copy back membership (device to host) */
 	cudaMemcpy(membership_new, membership_d, npoints*sizeof(int), cudaMemcpyDeviceToHost);	

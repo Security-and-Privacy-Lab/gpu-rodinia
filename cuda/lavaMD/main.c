@@ -20,6 +20,8 @@
 #include <stdio.h>					// (in path known to compiler)			needed by printf
 #include <stdlib.h>					// (in path known to compiler)			needed by malloc
 #include <stdbool.h>				// (in path known to compiler)			needed by true/false
+#include <string.h>					// needed for strcmp
+#include <time.h>                      // needed for time
 
 //======================================================================================================================================================150
 //	UTILITIES

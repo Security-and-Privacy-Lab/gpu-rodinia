@@ -12,13 +12,13 @@ ifdef OUTPUT
 override OUTPUT = -DOUTPUT
 endif
 
-C_C = gcc
+C_C = g++
 OMP_LIB = -lgomp
 OMP_FLAG = -fopenmp
 
 CUD_C = $(CUDA_DIR)/bin/nvcc
 # OMP_FLAG = 	-Xcompiler paste_one_here
-CUDA_FLAG = -arch sm_13
+CUDA_FLAG = -arch sm_120
 
 # link objects (binaries) together
 a.out:		main.o \
@@ -80,7 +80,8 @@ main.o:		main.h \
 	$(CUD_C)			./util/device/device.cu \
 						-c \
 						-o ./util/device/device.o \
-						-O3
+						-O3 \
+						$(CUDA_FLAG)
 
 # delete all object and executable files
 clean:

@@ -9,7 +9,7 @@ SRC = hotspot.cu
 EXE = hotspot
 
 release: $(SRC)
-	$(CC) $(KERNEL_DIM) $(SRC) -o $(EXE) -I$(INCLUDE) -L$(CUDA_LIB_DIR) 
+	$(CC) $(KERNEL_DIM) $(SRC) -o $(EXE) -arch sm_120 -I$(INCLUDE) -L$(CUDA_LIB_DIR) 
 
 enum: $(SRC)
 	$(CC) $(KERNEL_DIM) -deviceemu $(SRC) -o $(EXE) -I$(INCLUDE) -L$(CUDA_LIB_DIR) 
